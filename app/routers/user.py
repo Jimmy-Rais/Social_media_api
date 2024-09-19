@@ -20,3 +20,4 @@ def create_user(user:schemas.UserCreate,db:session=Depends(get_db)):
 def get_user(id:int,db:session=Depends(get_db)):
     user=db.query(models.Users).filter(models.Users.id==id).first()
     return user
+#R
