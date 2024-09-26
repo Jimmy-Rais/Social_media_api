@@ -1,6 +1,7 @@
 from datetime import datetime
 from pydantic import BaseModel, conint
 from pydantic import EmailStr
+#New post schema
 class Post(BaseModel):
     title:str
     content:str
