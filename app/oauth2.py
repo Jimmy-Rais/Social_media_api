@@ -4,6 +4,7 @@ from datetime import datetime,timedelta, timezone
 from . import schemas,config
 from fastapi.security import OAuth2PasswordBearer
 Oauth2_scheme=OAuth2PasswordBearer(tokenUrl="token")
+#Secret key and algorithm used for jwt auth
 SECRET_KEY=config.settings.secret_key
 ALGORITHM =config.settings.algorithm
 ACCESS_TOKEN_EXPIRE_MINUTES = 60
