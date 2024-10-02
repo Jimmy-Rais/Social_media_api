@@ -3,6 +3,7 @@ from sqlalchemy import Column,Integer,String,Boolean,ForeignKey
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql.sqltypes import TIMESTAMP
 from sqlalchemy.sql.expression import text
+#Customer feedbacks posts
 class Post(Base):
     __tablename__ = 'posts'
     id=Column(Integer,primary_key=True,nullable=False)
@@ -12,14 +13,15 @@ class Post(Base):
     created_at=Column(TIMESTAMP(timezone=True),nullable=False,server_default=text('now()'))
     owner_id=Column(Integer,ForeignKey("users.id",ondelete="CASCADE"),nullable=False)
     owner=relationship("Users")
-#Tables for Users registration
+    
+#User registration table
 class Users(Base):
     __tablename__ = 'users'
     id=Column(Integer,nullable=False,primary_key=True)
     email=Column(String,nullable=False)
     password=Column(String,nullable=False)
     created_at=Column(TIMESTAMP(timezone=True),nullable=False,server_default=text('now()'))
-#Vote/Like table
+#Votes and Comments table
 class Vote(Base):
     __tablename__ = 'votes'
     user_id = Column(Integer,ForeignKey("users.id",ondelete="CASCADE"),primary_key=True)

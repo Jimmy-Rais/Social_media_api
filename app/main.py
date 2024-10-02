@@ -29,4 +29,4 @@ app.include_router(login.router)
 app.include_router(vote.route)
 @app.get("/")
 async def root():
- return {"message": "Hello learners!!!!!!!"}
+ return {"Customer feedback Platform"}
